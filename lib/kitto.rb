@@ -1,5 +1,9 @@
-require "kitto/version"
+require 'kitto/version'
+require 'kitto/model'
+require 'kitto/value_object'
 
 module Kitto
-  # Your code goes here...
+
+  Error = Class.new(StandardError)
+  WrongExpandClass = Class.new(Kitto::Error)
 end
