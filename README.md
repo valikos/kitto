@@ -2,29 +2,46 @@
 
 [![Code Climate](https://codeclimate.com/github/valikos/kitto/badges/gpa.svg)](https://codeclimate.com/github/valikos/kitto)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kitto`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Kitto allows you to define attributes on classes. As model layer Kitto gives you write/access methods.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'kitto'
+gem 'kitto', github: 'valikos/kitto'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install kitto
-
 ## Usage
+Kitto gives to you familiar interface to work with attributes.
+Kitto is working with classes. You are definig new class with inclusions of `Kitto::Model` module and define attribues for your future instances.
 
-TODO: Write usage instructions here
+```ruby
+  class Person
+    include Kitto::Model
+
+    attribute :name
+    attribute :age
+  end
+```
+### Class Attributes
+When class already defined you can get a list of attributes with `Person.attributes`
+
+```ruby
+  Person.attributes #=> [:name, :age]
+```
+
+### Instance Attributes
+When instance already defined you can get a list of attributes with values `person.attributes`
+
+```ruby
+  person = Person.new
+  person.attributes #=> {:name=>nil, :age=>nil}
+```
 
 ## Development
 
@@ -40,4 +57,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
